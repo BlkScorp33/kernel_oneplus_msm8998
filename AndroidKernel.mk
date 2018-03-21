@@ -64,15 +64,15 @@ ifeq ($(TARGET_KERNEL),$(current_dir))
     # New style, kernel/msm-version
     BUILD_ROOT_LOC := ../../
     TARGET_KERNEL_SOURCE := kernel/$(TARGET_KERNEL)
-    KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/kernel/$(TARGET_KERNEL)
-    KERNEL_SYMLINK := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
+    KERNEL_OUT := $(INSTALLED_KERNEL_HEADERS)
+    KERNEL_SYMLINK := $(INSTALLED_KERNEL_HEADERS)
     KERNEL_USR := $(KERNEL_SYMLINK)/usr
 else
     # Legacy style, kernel source directly under kernel
     KERNEL_LEGACY_DIR := true
     BUILD_ROOT_LOC := ../
     TARGET_KERNEL_SOURCE := kernel
-    KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
+    KERNEL_OUT := $(INSTALLED_KERNEL_HEADERS)
 endif
 
 KERNEL_CONFIG := $(KERNEL_OUT)/.config
